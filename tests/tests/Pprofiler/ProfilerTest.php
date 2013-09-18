@@ -2,6 +2,8 @@
 
 namespace tests\Pprofiler;
 use Pprofiler\Profiler;
+use Pprofiler\Timer;
+use Pprofiler\Timer\TimeSpan;
 
 class ProfilerTest extends \PHPUnit_Framework_TestCase {
 
@@ -9,12 +11,21 @@ class ProfilerTest extends \PHPUnit_Framework_TestCase {
     protected $profiler;
 
     function setUp() {
-        $this->profiler = new Profiler();
+        $timer = new Timer();
+        $this->profiler = new Profiler($timer);
     }
 
     function testFoo() {
+        $this->profiler->start('foo');
+        $this->profiler->start('foo');
+        $this->profiler->start('foo2');
+        sleep(1);
 
-        $this->assertFalse(false);
+        $this->profiler->start('foo3');
+
+        foreach($this->profiler as $t)
+            /** @var $t TimeSpan */
+            echo $t->getName() .': '. $t->getRealTime()."\n";
     }
 
 }
