@@ -37,8 +37,13 @@ class Profiler implements \IteratorAggregate {
     }
 
     /** @return static */
-    function profile($name) {
-        return $this->getOrCreateProfile($name, $timer);
+    function profile($name=null) {
+        return $this->getOrCreateProfile($name, $this->timer);
+    }
+
+    /** @return static[] */
+    function getProfiles() {
+        return new \ArrayIterator($this->profiles);
     }
 
     /** @return TimeSpan */

@@ -16,7 +16,7 @@ class TimeSpan {
         $this->end = $end;
         $this->timer = $timer;
         $this->name = $name;
-        $this->data = $this->data;
+        $this->data = $data;
     }
 
     public function getStartTime() {
