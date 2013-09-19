@@ -2,7 +2,7 @@
     "name": "timglabisch/pprofiler",
     "description": "Easy Profiler",
     "keywords": ["log", "logging", "psr-3"],
-    "homepage": "http://github.com/Seldaek/monolog",
+    "homepage": "http://github.com/timglabisch/pprofiler",
     "type": "library",
     "license": "MIT",
     "authors": [
